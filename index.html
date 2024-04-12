@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>PUP Website Access</title>
+</head>
+<body>
+
+  <!--Container/Placeholder for buttons-->
+  <div class="container">
+    <div class="title">Hello There!</div>
+    <p>Buttons below are access to PUP website with and without authorization.</p>
+  
+    <div class="button1" onclick="downloadFile('https://www.pup.edu.ph/')">
+        Without Authorization
+    </div>
+  
+    <div class="button2" onclick="Credentials()">
+        With Authorization
+    </div>
+  </div>
+
+  <!-- Registration form -->
+  <div class="container" id="RegContainer" style="display: none;">
+    <h2>Registration</h2>
+    <div id="registrationForm">
+      <form id="registerForm">
+        <label for="regUser">Username:</label><br>
+        <input type="text" id="regUser" name="regUser" required><br>
+        <label for="regPass">Password:</label><br>
+        <input type="password" id="regPass" name="regPass" required><br><br>
+        <input type="submit" value="Register">
+      </form>
+    </div>
+  </div>
+
+<!-- File Download -->
+<script>
+function downloadFile(url) {
+  // Text content of the file
+  const text = "Click to access PUP website: <a href='" + url + "'>" + url + "</a>";
+
+  // filename
+  const filename = "Access for PUP Website.html";
+
+  // Create a file that is downloadable
+  const blob = new Blob([text], { type: 'text/html' });
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+
+  link.download = filename;
+  link.click();
+}
+
+
+  //function for user's credentials to access the file
+  function Credentials() {
+    //user's input for username and password if they have authorization
+    const username = prompt("Enter your username:");
+    const password = prompt("Enter your password:");
+
+    
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (username === storedUsername && password === storedPassword) {
+      // Download file with the link
+      downloadFile('https://www.pup.edu.ph/');
+    } else {
+      UnauthorizedAccess();
+    }
+  }
+
+  //function if user is not yet registered
+  function UnauthorizedAccess() {
+    const register = confirm("You don't have authorization. Do you want to register?");
+    if (register) {
+      document.getElementById('RegContainer').style.display = 'block';
+    }
+  }
+
+  //submission of registration
+  document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    registerUser();
+  });
+
+  //function for user's registration inputs
+  function registerUser() {
+    //get reg form and user's input for username and password registration
+    const form = document.getElementById('registerForm');
+    const username = form.elements['regUser'].value;
+    const password = form.elements['regPass'].value;
+
+    // Storing of credentials in localStorage
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    alert("Registration successful! You can now log in with your new credentials.");
+
+    // Reset form and hide registration form
+    form.reset();
+    document.getElementById('RegContainer').style.display = 'none';
+  }
+
+</script>
+
+</body>
+</html>

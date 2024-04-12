@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(52, 2, 2, 0.8),rgba(142, 136, 136, 0.8)), url(PUP.jpg);
+    background-size: cover;
+    background-size: 1600px;
+    background-position: 50% 100%;
+    padding: 10px;
+}
+
+.button1, .button2 {
+    height: 45px;
+    margin: 45px 10px;
+    outline: 2px solid black; /* Add outline */
+    border-radius: 5px;
+    background: #483248;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    margin: 10 10px; /* Add margin between buttons */
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    max-height: 700px;
+    height: 50%;
+    background-color: white;
+    border: 5px solid maroon;
+    padding: 25px 30px;
+    border-radius: 10px;
+    margin: 0; /* Set margin to 0 */
+    text-align: center;
+}
+.container .title{
+    font-size: 30px;
+    color: maroon;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.container p{
+    text-align: center;
+}
+/* style.css */
+
+#RegContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+#registrationForm {
+    text-align: center;
+    padding: 50px;
+    padding-top: 0px;
+}
+  
+#RegContainer h2 {
+    font-size: 30px;
+    color: maroon;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    
+}
