@@ -20,13 +20,13 @@ body{
 .button1, .button2 {
     height: 45px;
     margin: 45px 10px;
-    outline: 2px solid black; /* Add outline */
+    outline: 2px solid black; 
     border-radius: 5px;
     background: #483248;
     color: white;
     font-size: 15px;
     padding: 10px;
-    margin: 10 10px; /* Add margin between buttons */
+    margin: 10 10px;
 }
 
 .container {
@@ -38,7 +38,7 @@ body{
     border: 5px solid maroon;
     padding: 25px 30px;
     border-radius: 10px;
-    margin: 0; /* Set margin to 0 */
+    margin: 0;
     text-align: center;
 }
 .container .title{
@@ -52,7 +52,6 @@ body{
 .container p{
     text-align: center;
 }
-/* style.css */
 
 #RegContainer {
     display: flex;
